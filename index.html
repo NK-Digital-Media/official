@@ -1,117 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NK Digital Media | Chomu's Best Web Agency</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
-        body { font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
-    </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>NK Digital Media | Premium Agency</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+<style>
+body{
+  font-family:'Outfit',sans-serif;
+  scroll-behavior:smooth;
+  background:#0b0f1a;
+  color:white;
+}
+.glass{
+  background:rgba(255,255,255,0.05);
+  backdrop-filter:blur(14px);
+  border:1px solid rgba(255,255,255,0.08);
+}
+.card{
+  transition:0.4s;
+}
+.card:hover{
+  transform:translateY(-10px) scale(1.03);
+}
+.hero-glow{
+  position:absolute;
+  width:600px;
+  height:600px;
+  background:radial-gradient(circle,#3b82f6,transparent);
+  filter:blur(140px);
+  opacity:0.5;
+  top:-100px;
+  left:-100px;
+}
+</style>
 </head>
-<body class="bg-slate-50 text-slate-800">
 
-    <nav class="bg-white/80 backdrop-blur-md py-4 px-6 shadow-sm sticky top-0 z-50 flex justify-between items-center border-b border-slate-100">
-        <div class="text-2xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent italic">NK Digital Media</div>
-        <a href="https://wa.me/919257976032" class="bg-green-500 hover:bg-green-600 text-white px-5 py-2 rounded-full font-semibold transition-all flex items-center gap-2 text-sm shadow-lg shadow-green-200">
-            <i class="fab fa-whatsapp"></i> Chat Karien
-        </a>
-    </nav>
+<body>
 
-    <section class="py-16 px-6 text-center bg-white">
-        <span class="bg-blue-100 text-blue-700 px-4 py-1 rounded-full text-xs font-bold tracking-widest uppercase mb-4 inline-block">Best in Chomu</span>
-        <h1 class="text-4xl md:text-6xl font-extrabold text-slate-900 mb-6 leading-tight">Apni Shop Ko <br><span class="text-blue-600">Online Layein</span></h1>
-        <p class="text-slate-500 text-lg mb-10 max-w-xl mx-auto">Hum banate hain professional websites jo aapke business ki sales badhati hain. Aaj hi digital banein!</p>
-        <div class="flex flex-wrap justify-center gap-4">
-            <a href="#pricing" class="bg-slate-900 text-white px-8 py-4 rounded-2xl font-bold hover:bg-slate-800 transition">View Plans</a>
-            <a href="#services" class="bg-white border-2 border-slate-200 px-8 py-4 rounded-2xl font-bold hover:bg-slate-50 transition">Hum Kya Karte Hain?</a>
-        </div>
-    </section>
+<!-- NAV -->
+<nav class="fixed w-full top-0 z-50 glass flex justify-between items-center px-6 py-4">
+  <div class="text-xl font-bold">NK <span class="text-blue-400">Digital</span></div>
 
-    <section id="services" class="py-20 px-6">
-        <h2 class="text-3xl font-bold text-center mb-4">Humari Services</h2>
-        <p class="text-center text-slate-500 mb-12">Aapke business ke liye sab kuch ek hi jagah par.</p>
-        <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            <div class="bg-white p-8 rounded-3xl shadow-xl shadow-slate-200/50 border border-white hover:border-blue-200 transition group">
-                <div class="w-14 h-14 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center mb-6 text-2xl group-hover:bg-blue-600 group-hover:text-white transition">
-                    <i class="fas fa-store"></i>
-                </div>
-                <h3 class="text-xl font-bold mb-3 font-poppins">E-Commerce Site</h3>
-                <p class="text-slate-500 leading-relaxed">Apne products online bechein aur seedha WhatsApp par orders payein.</p>
-            </div>
-            <div class="bg-white p-8 rounded-3xl shadow-xl shadow-slate-200/50 border border-white hover:border-blue-200 transition group">
-                <div class="w-14 h-14 bg-indigo-50 text-indigo-600 rounded-2xl flex items-center justify-center mb-6 text-2xl group-hover:bg-indigo-600 group-hover:text-white transition">
-                    <i class="fas fa-bolt"></i>
-                </div>
-                <h3 class="text-xl font-bold mb-3">Portfolio Site</h3>
-                <p class="text-slate-500 leading-relaxed">Personal brand banayein aur duniya ko apna hunar dikhayein.</p>
-            </div>
-            <div class="bg-white p-8 rounded-3xl shadow-xl shadow-slate-200/50 border border-white hover:border-blue-200 transition group">
-                <div class="w-14 h-14 bg-purple-50 text-purple-600 rounded-2xl flex items-center justify-center mb-6 text-2xl group-hover:bg-purple-600 group-hover:text-white transition">
-                    <i class="fas fa-search-dollar"></i>
-                </div>
-                <h3 class="text-xl font-bold mb-3">SEO & Marketing</h3>
-                <p class="text-slate-500 leading-relaxed">Google search par sabse upar aayein aur naye clients payein.</p>
-            </div>
-        </div>
-    </section>
+  <a href="https://wa.me/919257976032?text=Hi%20NK%20Digital%20Media%2C%20I%20want%20a%20website"
+     class="bg-green-500 px-5 py-2 rounded-full font-bold hover:scale-105 transition">
+     WhatsApp Us
+  </a>
+</nav>
 
-    <section id="pricing" class="py-20 px-6 bg-slate-900 text-white rounded-[3rem] mx-4">
-        <h2 class="text-3xl font-bold text-center mb-12">Affordable Plans</h2>
-        <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            <div class="bg-slate-800 p-8 rounded-3xl border border-slate-700">
-                <h4 class="text-lg font-bold mb-2">Basic</h4>
-                <div class="text-3xl font-bold mb-6">₹1,999 <span class="text-sm font-normal text-slate-400">/one time</span></div>
-                <ul class="space-y-4 mb-8 text-slate-300">
-                    <li><i class="fas fa-check text-green-400 mr-2"></i> Single Page Site</li>
-                    <li><i class="fas fa-check text-green-400 mr-2"></i> WhatsApp Order Button</li>
-                    <li><i class="fas fa-check text-green-400 mr-2"></i> Mobile Friendly</li>
-                </ul>
-                <a href="https://wa.me/919257976032?text=I%20want%20Basic%20Plan" class="block text-center bg-white text-slate-900 py-3 rounded-xl font-bold">Select Plan</a>
-            </div>
-            <div class="bg-blue-600 p-8 rounded-3xl border-4 border-blue-400 scale-105 relative">
-                <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-yellow-400 text-slate-900 px-4 py-1 rounded-full text-xs font-bold uppercase">Popular</div>
-                <h4 class="text-lg font-bold mb-2">Business Pro</h4>
-                <div class="text-3xl font-bold mb-6">₹4,999 <span class="text-sm font-normal text-blue-200">/one time</span></div>
-                <ul class="space-y-4 mb-8">
-                    <li><i class="fas fa-check text-white mr-2"></i> 5 Pages Website</li>
-                    <li><i class="fas fa-check text-white mr-2"></i> Product Gallery</li>
-                    <li><i class="fas fa-check text-white mr-2"></i> Google Maps Setup</li>
-                    <li><i class="fas fa-check text-white mr-2"></i> SSL Security</li>
-                </ul>
-                <a href="https://wa.me/919257976032?text=I%20want%20Pro%20Plan" class="block text-center bg-white text-blue-600 py-3 rounded-xl font-bold">Select Plan</a>
-            </div>
-            <div class="bg-slate-800 p-8 rounded-3xl border border-slate-700">
-                <h4 class="text-lg font-bold mb-2">Enterprise</h4>
-                <div class="text-3xl font-bold mb-6 text-slate-300 italic text-xl">Let's Discuss</div>
-                <ul class="space-y-4 mb-8 text-slate-400">
-                    <li><i class="fas fa-check text-green-400 mr-2"></i> Custom Dashboards</li>
-                    <li><i class="fas fa-check text-green-400 mr-2"></i> Payment Gateway</li>
-                    <li><i class="fas fa-check text-green-400 mr-2"></i> 24/7 Support</li>
-                </ul>
-                <a href="https://wa.me/919257976032?text=Custom%20Plan%20Discussion" class="block text-center border border-slate-600 py-3 rounded-xl font-bold">Contact Us</a>
-            </div>
-        </div>
-    </section>
+<!-- HERO -->
+<section class="relative min-h-screen flex items-center justify-center text-center px-6 overflow-hidden">
 
-    <footer class="py-16 px-6 text-center">
-        <div class="mb-8">
-            <h5 class="text-2xl font-bold mb-2">NK Digital Media</h5>
-            <p class="text-slate-500">Transforming Local Businesses Digitally</p>
-        </div>
-        <div class="flex justify-center gap-6 mb-8 text-2xl text-slate-400">
-            <i class="fab fa-instagram hover:text-pink-500 cursor-pointer"></i>
-            <i class="fab fa-facebook hover:text-blue-600 cursor-pointer"></i>
-            <i class="fab fa-linkedin hover:text-blue-700 cursor-pointer"></i>
-        </div>
-        <p class="text-slate-400 text-sm">© 2026 NK Digital Media. Designed with ❤️ for Chomu.</p>
-    </footer>
+<div class="hero-glow"></div>
 
-    <a href="https://wa.me/919257976032" class="fixed bottom-8 right-8 bg-green-500 text-white w-16 h-16 rounded-full flex items-center justify-center text-3xl shadow-2xl hover:scale-110 active:scale-95 transition z-[100]">
-        <i class="fab fa-whatsapp"></i>
-    </a>
+<div>
+  <h1 class="text-5xl md:text-7xl font-extrabold leading-tight">
+    We Build <span class="text-blue-400">High-Converting</span><br>Web Experiences
+  </h1>
 
-</body>
-</html>
+  <p class="text-gray-400 mt-6 max-w-xl mx-auto">
+    Websites, Branding & Digital Growth Solutions for Modern Businesses.
+  </p>
+
+  <div class="mt-8 flex justify-center gap-4">
+    <a href="#pricing" class="bg-blue-500 px-6 py-3 rounded-full font-bold hover:scale-105 transition">Get Started</a>
+    <a href="#work" class="border border-white/20 px-6 py-3 rounded-full">See Work</a>
+  </div>
+</div>
+
+</section>
+
+<!-- STATS -->
+<section class="grid grid-cols-2 md:grid-cols-4 gap-4 px-6 py-16 max-w-6xl mx-auto">
+
+<div class="glass p-6 rounded-2xl text-center card">
+<h2 class="text-3xl font-bold text-blue-400">50+</h2>
+<p class="text-gray-400 text-sm">Projects</p>
+</div>
+
+<div class="glass p-6 rounded-2xl text-center card">
+<h2 class="text-3xl font-bold text-blue-400">100%</h2>
+<p class="text-gray-400 text-sm">Satisfaction</p>
+</div>
+
+<div class="glass p-6 rounded-2xl text-center card">
+<h2 class="text-3xl font-bold text-blue-400">24h</h2>
+<p class="text-gray-400 text-sm">Delivery</p>
+</div>
+
+<div class="glass
