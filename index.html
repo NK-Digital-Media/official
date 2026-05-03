@@ -1,98 +1,182 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>NK Digital Media | Premium Agency</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NK Digital Media | Ultra Premium</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-<script src="https://cdn.tailwindcss.com"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <style>
+        body {
+            background-color: #050505;
+            color: #ffffff;
+            font-family: 'Space Grotesk', sans-serif;
+            cursor: none; /* Custom cursor ke liye original cursor chhupa diya */
+            overflow-x: hidden;
+        }
 
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+        /* Custom Cursor Style */
+        #cursor {
+            width: 20px; height: 20px; background: white;
+            border-radius: 50%; position: fixed; top: 0; left: 0;
+            pointer-events: none; z-index: 9999; mix-blend-mode: difference;
+            transition: transform 0.2s ease;
+        }
 
-<style>
-body{
-  font-family:'Outfit',sans-serif;
-  scroll-behavior:smooth;
-  background:#0b0f1a;
-  color:white;
-}
-.glass{
-  background:rgba(255,255,255,0.05);
-  backdrop-filter:blur(14px);
-  border:1px solid rgba(255,255,255,0.08);
-}
-.card{
-  transition:0.4s;
-}
-.card:hover{
-  transform:translateY(-10px) scale(1.03);
-}
-.hero-glow{
-  position:absolute;
-  width:600px;
-  height:600px;
-  background:radial-gradient(circle,#3b82f6,transparent);
-  filter:blur(140px);
-  opacity:0.5;
-  top:-100px;
-  left:-100px;
-}
-</style>
+        .gradient-text {
+            background: linear-gradient(90deg, #3b82f6, #9333ea, #3b82f6);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradient-flow 3s linear infinite;
+        }
+
+        @keyframes gradient-flow { to { background-position: 200% center; } }
+
+        .bento-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(12px);
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .bento-card:hover {
+            background: rgba(255, 255, 255, 0.07);
+            border-color: rgba(59, 130, 246, 0.5);
+            box-shadow: 0 0 30px rgba(59, 130, 246, 0.2);
+        }
+
+        .blob {
+            position: absolute; width: 500px; height: 500px;
+            background: linear-gradient(180deg, rgba(59, 130, 246, 0.2) 0%, rgba(147, 51, 234, 0.2) 100%);
+            filter: blur(80px); border-radius: 50%; z-index: -1;
+            animation: move 20s infinite alternate;
+        }
+
+        @keyframes move {
+            from { transform: translate(-10%, -10%); }
+            to { transform: translate(20%, 20%); }
+        }
+    </style>
 </head>
-
 <body>
 
-<!-- NAV -->
-<nav class="fixed w-full top-0 z-50 glass flex justify-between items-center px-6 py-4">
-  <div class="text-xl font-bold">NK <span class="text-blue-400">Digital</span></div>
+    <div id="cursor"></div>
 
-  <a href="https://wa.me/919257976032?text=Hi%20NK%20Digital%20Media%2C%20I%20want%20a%20website"
-     class="bg-green-500 px-5 py-2 rounded-full font-bold hover:scale-105 transition">
-     WhatsApp Us
-  </a>
-</nav>
+    <div class="blob top-[-10%] left-[-10%]"></div>
+    <div class="blob bottom-[0%] right-[-10%]" style="animation-delay: -5s;"></div>
 
-<!-- HERO -->
-<section class="relative min-h-screen flex items-center justify-center text-center px-6 overflow-hidden">
+    <nav class="fixed w-full top-0 z-[100] px-8 py-6 flex justify-between items-center backdrop-blur-md">
+        <div class="text-2xl font-bold tracking-tighter uppercase">NK <span class="text-blue-500">Studio</span></div>
+        <div class="hidden md:flex gap-10 text-sm font-medium uppercase tracking-widest text-gray-400">
+            <a href="#services" class="hover:text-white transition">Services</a>
+            <a href="#pricing" class="hover:text-white transition">Pricing</a>
+            <a href="https://wa.me/919257976032" class="hover:text-white transition">Contact</a>
+        </div>
+        <a href="https://wa.me/919257976032" class="bg-white text-black px-8 py-3 rounded-full font-bold text-xs uppercase hover:bg-blue-500 hover:text-white transition-all duration-500">Book A Call</a>
+    </nav>
 
-<div class="hero-glow"></div>
+    <section class="h-screen flex flex-col justify-center items-center text-center px-6">
+        <h1 class="text-6xl md:text-9xl font-bold mb-8 leading-[0.9] reveal">
+            THE <span class="gradient-text">FUTURE</span> <br> OF WEB IS HERE.
+        </h1>
+        <p class="text-gray-500 text-lg md:text-xl max-w-2xl mb-12 opacity-0 hero-p">
+            NK Digital Media creates ultra-fast, high-end digital experiences that convert strangers into loyal customers.
+        </p>
+        <div class="flex gap-6 opacity-0 hero-btn">
+            <a href="#pricing" class="bg-blue-600 px-10 py-5 rounded-full font-bold text-sm uppercase tracking-wider hover:scale-110 transition">Start Project</a>
+            <a href="https://wa.me/919257976032" class="border border-white/20 px-10 py-5 rounded-full font-bold text-sm uppercase tracking-wider hover:bg-white hover:text-black transition">WhatsApp</a>
+        </div>
+    </section>
 
-<div>
-  <h1 class="text-5xl md:text-7xl font-extrabold leading-tight">
-    We Build <span class="text-blue-400">High-Converting</span><br>Web Experiences
-  </h1>
+    <section id="services" class="py-32 px-8 max-w-7xl mx-auto">
+        <h2 class="text-4xl font-bold mb-20 text-center uppercase tracking-tighter">Our Core Capabilities</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="bento-card md:col-span-2 p-12 rounded-[2.5rem] flex flex-col justify-between h-[400px]">
+                <i class="fas fa-rocket text-4xl text-blue-500"></i>
+                <div>
+                    <h3 class="text-3xl font-bold mb-4 italic">Lightning Fast Performance</h3>
+                    <p class="text-gray-400">We optimize every line of code to ensure your site loads in under 1 second. Speed is money.</p>
+                </div>
+            </div>
+            <div class="bento-card p-12 rounded-[2.5rem] flex flex-col justify-between">
+                <i class="fas fa-mobile-screen-button text-4xl text-purple-500"></i>
+                <h3 class="text-2xl font-bold italic leading-tight">Responsive <br> Everywhere</h3>
+            </div>
+            <div class="bento-card p-12 rounded-[2.5rem] flex flex-col justify-between">
+                <i class="fas fa-shield-halved text-4xl text-green-500"></i>
+                <h3 class="text-2xl font-bold italic leading-tight">Bank-Grade <br> Security</h3>
+            </div>
+            <div class="bento-card md:col-span-2 p-12 rounded-[2.5rem] flex flex-col justify-between h-[300px]">
+                <div class="flex justify-between items-start">
+                    <h3 class="text-3xl font-bold italic">SEO Dominance</h3>
+                    <i class="fas fa-arrow-trend-up text-4xl text-orange-500"></i>
+                </div>
+                <p class="text-gray-400">Not just a website, but a machine that ranks on Google and brings in organic sales 24/7.</p>
+            </div>
+        </div>
+    </section>
 
-  <p class="text-gray-400 mt-6 max-w-xl mx-auto">
-    Websites, Branding & Digital Growth Solutions for Modern Businesses.
-  </p>
+    <section id="pricing" class="py-32 px-8">
+        <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12">
+            <div class="p-1 w-full bg-gradient-to-b from-blue-500 to-transparent rounded-[3rem]">
+                <div class="bg-[#0a0a0a] p-12 rounded-[2.9rem] h-full flex flex-col justify-between">
+                    <div>
+                        <h4 class="text-blue-500 font-bold uppercase tracking-widest mb-4">The Starter</h4>
+                        <div class="text-6xl font-bold mb-6 italic">₹1,999</div>
+                        <p class="text-gray-500 mb-8 font-medium">Perfect for local shops in Chomu looking to go online.</p>
+                    </div>
+                    <a href="https://wa.me/919257976032?text=Starter%20Package" class="bg-blue-600 text-center py-5 rounded-2xl font-bold uppercase text-xs tracking-widest hover:bg-blue-700 transition">Get Started Now</a>
+                </div>
+            </div>
+            <div class="p-1 w-full bg-gradient-to-b from-purple-500 to-transparent rounded-[3rem]">
+                <div class="bg-[#0a0a0a] p-12 rounded-[2.9rem] h-full flex flex-col justify-between">
+                    <div>
+                        <h4 class="text-purple-500 font-bold uppercase tracking-widest mb-4">The Professional</h4>
+                        <div class="text-6xl font-bold mb-6 italic">₹4,999</div>
+                        <p class="text-gray-500 mb-8 font-medium">Full featured premium experience with advanced SEO and support.</p>
+                    </div>
+                    <a href="https://wa.me/919257976032?text=Pro%20Package" class="bg-purple-600 text-center py-5 rounded-2xl font-bold uppercase text-xs tracking-widest hover:bg-purple-700 transition">Go Pro Today</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <div class="mt-8 flex justify-center gap-4">
-    <a href="#pricing" class="bg-blue-500 px-6 py-3 rounded-full font-bold hover:scale-105 transition">Get Started</a>
-    <a href="#work" class="border border-white/20 px-6 py-3 rounded-full">See Work</a>
-  </div>
-</div>
+    <footer class="py-20 text-center border-t border-white/5">
+        <p class="text-gray-600 text-sm tracking-widest font-bold">© 2026 NEERAJ KUMAR VERMA • ALL RIGHTS RESERVED</p>
+    </footer>
 
-</section>
+    <script>
+        // Custom Cursor Logic
+        const cursor = document.getElementById('cursor');
+        document.addEventListener('mousemove', (e) => {
+            gsap.to(cursor, { x: e.clientX, y: e.clientY, duration: 0.1 });
+        });
 
-<!-- STATS -->
-<section class="grid grid-cols-2 md:grid-cols-4 gap-4 px-6 py-16 max-w-6xl mx-auto">
+        // Hover Effect on Links
+        document.querySelectorAll('a').forEach(link => {
+            link.addEventListener('mouseenter', () => gsap.to(cursor, { scale: 3 }));
+            link.addEventListener('mouseleave', () => gsap.to(cursor, { scale: 1 }));
+        });
 
-<div class="glass p-6 rounded-2xl text-center card">
-<h2 class="text-3xl font-bold text-blue-400">50+</h2>
-<p class="text-gray-400 text-sm">Projects</p>
-</div>
+        // GSAP Animations
+        gsap.registerPlugin(ScrollTrigger);
 
-<div class="glass p-6 rounded-2xl text-center card">
-<h2 class="text-3xl font-bold text-blue-400">100%</h2>
-<p class="text-gray-400 text-sm">Satisfaction</p>
-</div>
+        gsap.from(".reveal", { y: 100, opacity: 0, duration: 1.5, ease: "power4.out" });
+        gsap.to(".hero-p", { opacity: 1, y: 0, delay: 0.5, duration: 1 });
+        gsap.to(".hero-btn", { opacity: 1, y: 0, delay: 0.8, duration: 1 });
 
-<div class="glass p-6 rounded-2xl text-center card">
-<h2 class="text-3xl font-bold text-blue-400">24h</h2>
-<p class="text-gray-400 text-sm">Delivery</p>
-</div>
-
-<div class="glass
+        gsap.utils.toArray(".bento-card").forEach(card => {
+            gsap.from(card, {
+                scrollTrigger: { trigger: card, start: "top 90%" },
+                opacity: 0, y: 50, duration: 1, ease: "power3.out"
+            });
+        });
+    </script>
+</body>
+</html>
